@@ -26,6 +26,7 @@ const config: Config = {
       },
       fontFamily: {
         robotoCon: ["robotoCon", "serif"],
+        poppins: ["poppins", "serif"],
       },
     },
   },

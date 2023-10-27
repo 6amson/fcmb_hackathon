@@ -13,7 +13,10 @@ export default function Home() {
           <BalanceStatement></BalanceStatement>
           <AiNewsSummarize></AiNewsSummarize>
         </div>
-        <div className="xl:w-[78vw] bg-darkerHomeGray w-full  h-fit lg:h-[300px] border-black mt-[22px] rounded-[12px] mx-auto p-[10px]">
+        <div className="xl:w-[78vw] bg-darkerHomeGray w-full  h-fit  border-black mt-[22px] rounded-[12px] mx-auto p-[10px]">
+          <div className="mb-[24px] w-full border-b p-[10px] border-portDarkGray text-[12px] lg:text-base">
+            Recent Transactions
+          </div>
           <RecentTransactions></RecentTransactions>
         </div>
       </div>
