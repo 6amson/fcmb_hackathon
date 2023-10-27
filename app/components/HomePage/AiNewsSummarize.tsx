@@ -9,12 +9,15 @@ export default function AiNewsSummarize() {
   ];
 
   return (
-    <div className="w-[30vw] h-[380px] rounded-[12px] bg-white px-[12px] py-[32px] relative">
-      <div className="flex flex-col gap-y-[15px]">
+    <div className="lg:w-[30vw] w-full lg:h-[380px]  rounded-[12px] bg-white px-[12px] py-[32px] relative">
+      <div className="flex flex-col gap-y-[15px] pb-[30px]">
         {articles.map((item, index) => {
           return (
-            <div className="flex items-center justify-between" key={index}>
-              <div className="px-[21px] py-[10px] rounded-[10px] border border-black lg:w-[280px] xl:w-[300px] truncate">
+            <div
+              className="flex items-center justify-between gap-x-[10px]"
+              key={index}
+            >
+              <div className="px-[21px] py-[10px] rounded-[10px] border border-black lg:w-[200px] xl:w-[300px] truncate">
                 {item.headlines}
               </div>
               <button className="py-[10px] px-[8px] rounded-[10px] bg-black text-white text-[12px]">

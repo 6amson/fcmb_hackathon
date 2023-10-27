@@ -23,15 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className + " bg-lightGray"}>
-        <div className="w-full bg-white h-[77px] fixed top-0 pl-[200px] z-30">
+        <div className="w-full bg-white h-[77px] fixed top-0 pl-[200px] z-30 lg:block hidden">
           <Header></Header>
         </div>
         <div className="flex">
-          <div className="w-[200px] h-[100vh] bg-black z-40 fixed">
+          <div className="w-[200px] h-[100vh] bg-black z-40 fixed lg:block hidden">
             <SideBar></SideBar>
           </div>
 
-          <div className="w-full mt-[100px] pl-[200px]"> {children}</div>
+          <div className="w-full mt-[100px] lg:pl-[200px]"> {children}</div>
         </div>
       </body>
     </html>

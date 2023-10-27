@@ -19,6 +19,13 @@ const config: Config = {
         headerTextGray: "#828282",
         primaryPurple: "#A84CF1",
         darkerHomeGray: "#EBEBEB",
+        statusGreen: "#4BE75B",
+        statusRed: "#E65741",
+        homeGrayText: "#4E4D4D",
+        portDarkGray: "#D8D8D8",
+      },
+      fontFamily: {
+        robotoCon: ["robotoCon", "serif"],
       },
     },
   },

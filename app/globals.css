@@ -12,3 +12,8 @@
 
 body {
 }
+
+@font-face {
+  font-family: robotoCon;
+  src: url("../public/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf");
+}
