@@ -40,8 +40,10 @@ export default function RootLayout({
           </div>
 
           <div
-            className={`w-full mt-[100px] lg:pl-[200px] ${
-              isHome && "mt-0 pl-0 lg:pl-0 lg:mt-0"
+            className={`w-full  ${
+              isHome
+                ? "mt-0 pl-0 lg:pl-0 lg:mt-0"
+                : "w-full mt-[100px] lg:pl-[200px]"
             }`}
           >
             {" "}
