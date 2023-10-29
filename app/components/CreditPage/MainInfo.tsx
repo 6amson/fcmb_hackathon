@@ -6,6 +6,9 @@ import userPotrait from "../../../public/CreditPage/user-image.jpg";
 import Image from "next/image";
 import { BsInfoCircle, BsX } from "react-icons/bs";
 import { useContext, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { MainContext, MainContextTypes } from "../MainContext/MainContext";
 
 const SmartScore = () => {
@@ -182,7 +185,7 @@ export default function MainInfo() {
           <div className="p-[24px]  gap-y-[20px] flex flex-col">
             <div className="bg-darkerHomeGray p-[7px]  px-[14px] lg:flex-row flex gap-y-[10px] lg:gap-y-0 flex-col lg:items-center rounded-[10px]">
               <div className="lg:w-[150px] truncate lg:pr-[20px] border-b lg:border-r lg:border-b-0 border-[#999999]">
-                Kemi's college
+                Kemi&apos;s college
               </div>
               <div className="flex flex-col lg:flex-row lg:items-center lg:pl-[33px] lg:gap-x-[33px] font-robotoCon gap-y-[10px] lg:gap-y-0">
                 <div className="rounded-[10px] bg-black text-white p-[10px] w-fit">
