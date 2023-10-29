@@ -1,11 +1,14 @@
+"use client"
+
 import Image from 'next/image';
-// import logo from './logo.png';
-// import expandArrow from "./expandArrow.svg";
-// import arrowLeft from "./right-arrow-svgrepo.svg";
 import './home.scss'
 const logo = require('./logo.png');
 const expandArrow = require("./expandArrow.svg");
 const arrowLeft = require("./right-arrow-svgrepo.svg");
+import { useRouter } from 'next/navigation';
+import { setTimeout } from 'timers';
+const ham = require('./hamburger.svg')
+
 
 
 
@@ -13,14 +16,30 @@ const arrowLeft = require("./right-arrow-svgrepo.svg");
 
 
 export default function Home() {
+    const router = useRouter();
+
+    const getStarted = () => {
+        setTimeout(() => {
+            router.push('/')
+        }, 1500);
+    }
+
     return (
         <main>
             <div className='header'>
                 <div>
+                    <Image
+                        src={ham}
+                        width={25}
+                        height={25}
+                        alt="menu"
+                        className='menu'
+                    />
+
                     <ul>
                         <li>Services</li>
                         <Image
-                            src={expandArrow.src}
+                            src={expandArrow}
                             width={15}
                             height={15}
                             alt="question arrow"
@@ -39,7 +58,7 @@ export default function Home() {
                     />
                 </div>
                 <div>
-                    <button>Get started</button>
+                    <button onClick={getStarted}>Get started</button>
                 </div>
             </div>
 
@@ -47,11 +66,11 @@ export default function Home() {
                 <div className='textHeroPage'>
                     <p>Manage your <span>portfolio</span> all in one place.</p>
                     <p>Never miss the oppurtunity to invest, take advantage of our overdraft feature.</p>
-                    <button>
+                    <button onClick={getStarted}>
                         Start Investing
                         <Image
                             src={arrowLeft}
-                            width={40}
+                            width={20}
                             height={25}
                             alt='arrow left'
                             className='arrowLeft'
