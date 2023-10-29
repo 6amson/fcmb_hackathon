@@ -1,5 +1,7 @@
+"use client";
 import listingOne from "../../../public/PortfolioDisplay/listing-1.svg";
 import listingTwo from "../../../public/PortfolioDisplay/listing-2.svg";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   BsArrowUpRightCircleFill,
@@ -9,9 +11,26 @@ import {
 } from "react-icons/bs";
 
 export default function StockOwned() {
+  const router = useRouter();
   const listingArray = [
-    { name: "Nestle", icon: listingOne, up: true, percent: "+0.6%" },
-    { name: "Bolt", icon: listingTwo, up: false, percent: "-0.3%" },
+    {
+      name: "Nestle",
+      icon: listingOne,
+      up: true,
+      percent: "+0.6%",
+      onClick: () => {
+        router.push("/sharesPage?name=nestle");
+      },
+    },
+    {
+      name: "Bolt",
+      icon: listingTwo,
+      up: false,
+      percent: "-0.3%",
+      onClick: () => {
+        router.push("/sharesPage?name=bolt");
+      },
+    },
   ];
   return (
     <div className="w-full">
@@ -29,8 +48,11 @@ export default function StockOwned() {
           {listingArray.map((item, index) => {
             return (
               <div
+                onClick={() => {
+                  item.onClick();
+                }}
                 key={index}
-                className="p-[10px] bg-darkerHomeGray flex rounded-[16px]"
+                className="p-[10px] bg-darkerHomeGray flex rounded-[16px] cursor-pointer"
               >
                 <Image
                   src={item.icon}

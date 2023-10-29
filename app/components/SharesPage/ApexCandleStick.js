@@ -268,7 +268,7 @@ export default class Apex extends React.Component {
           height: 350,
         },
         title: {
-          text: "Bolt OHLC Graph ",
+          text: "OHLC Graph ",
           align: "left",
         },
         xaxis: {

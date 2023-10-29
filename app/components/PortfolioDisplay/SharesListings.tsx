@@ -1,3 +1,4 @@
+"use client";
 import listingOne from "../../../public/PortfolioDisplay/listing-1.svg";
 import listingTwo from "../../../public/PortfolioDisplay/listing-2.svg";
 import listingThree from "../../../public/PortfolioDisplay/listing-3.svg";
@@ -8,13 +9,47 @@ import {
   BsArrowDownLeftCircleFill,
   BsGlobe,
 } from "react-icons/bs";
+import { useRouter } from "next/navigation";
 
 export default function SharesListing() {
+  const router = useRouter();
   const listingArray = [
-    { name: "Nestle", icon: listingOne, up: true, percent: "+0.6%" },
-    { name: "Bolt", icon: listingTwo, up: false, percent: "-0.3%" },
-    { name: "flutterwave", icon: listingThree, up: true, percent: "+0.9%" },
-    { name: "Alat", icon: listingFour, up: false, percent: "-0.2%" },
+    {
+      name: "Nestle",
+      icon: listingOne,
+      up: true,
+      percent: "+0.6%",
+      onClick: () => {
+        router.push("/sharesPage?name=nestle");
+      },
+    },
+    {
+      name: "Bolt",
+      icon: listingTwo,
+      up: false,
+      percent: "-0.3%",
+      onClick: () => {
+        router.push("/sharesPage?name=bolt");
+      },
+    },
+    {
+      name: "flutterwave",
+      icon: listingThree,
+      up: true,
+      percent: "+0.9%",
+      onClick: () => {
+        router.push("/sharesPage?name=flutter");
+      },
+    },
+    {
+      name: "Alat",
+      icon: listingFour,
+      up: false,
+      percent: "-0.2%",
+      onClick: () => {
+        router.push("/sharesPage?name=alat");
+      },
+    },
   ];
   return (
     <>
@@ -28,8 +63,11 @@ export default function SharesListing() {
           {listingArray.map((item, index) => {
             return (
               <div
+                onClick={() => {
+                  item.onClick();
+                }}
                 key={index}
-                className="p-[10px] bg-white flex rounded-[16px]"
+                className="p-[10px] bg-white flex rounded-[16px] cursor-pointer"
               >
                 <Image
                   src={item.icon}
@@ -41,11 +79,11 @@ export default function SharesListing() {
                 <div className="flex justify-between w-full pl-[14px]">
                   <div className="flex flex-col justify-between">
                     {" "}
-                    <div>{item.name}</div>
+                    <div className="text-left">{item.name}</div>
                     <div className="px-[10px] py-[14px] bg-black rounded-[12px] text-white font-robotoCon flex w-fit text-[12px] gap-x-[11px]">
-                      <div>Open: $38</div>
-                      <div className="border-x px-[11px]">Down: $38</div>
-                      <div>High: $38</div>
+                      <div>Open: N2000</div>
+                      <div className="border-x px-[11px]">Down: N1800</div>
+                      <div>High: N2100</div>
                     </div>
                   </div>
                   <div className="flex flex-col justify-between">
@@ -109,9 +147,9 @@ export default function SharesListing() {
                       <p>Valuation- </p> 2 billion
                     </div>
                     <div className="px-[10px] py-[14px] bg-black rounded-[12px] text-white font-robotoCon flex w-fit text-[11px] lg:text-[12px] gap-x-[11px]">
-                      <div>Open: $38</div>
-                      <div className="border-x px-[11px]">Down: $38</div>
-                      <div>High: $38</div>
+                      <div>Open: N2000</div>
+                      <div className="border-x px-[11px]">Down: N1900</div>
+                      <div>High: N2100</div>
                     </div>
                   </div>
                   <div className="flex gap-x-2  justify-end absolute top-[10px] right-[10px]">

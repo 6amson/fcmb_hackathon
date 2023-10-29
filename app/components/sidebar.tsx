@@ -1,6 +1,20 @@
+"use client";
+import { useRouter, usePathname } from "next/navigation";
+import { Dispatch, SetStateAction, useState, useContext } from "react";
+import { MainContext, MainContextTypes } from "./MainContext/MainContext";
 import { BsHouseFill, BsFolderFill, BsPersonFill } from "react-icons/bs";
 
 export default function SideBar() {
+  const {
+    setIncomingCollateralRequest,
+    mainPayload,
+    setMainPayload,
+    setWalletAmount,
+    walletAmount,
+  } = useContext(MainContext) as MainContextTypes;
+  const pathName = usePathname();
+  const router = useRouter();
+
   const headerIconsProp = {
     color: "white",
     size: 21,
@@ -15,7 +29,10 @@ export default function SideBar() {
           color={headerIconsProp.color}
         ></BsHouseFill>
       ),
-      selected: true,
+      selected: pathName === "/",
+      onclick: () => {
+        router.push("/");
+      },
     },
     {
       name: "portfolio",
@@ -25,7 +42,10 @@ export default function SideBar() {
           color={headerIconsProp.color}
         ></BsFolderFill>
       ),
-      selected: false,
+      selected: pathName === "/portfolioDisplay",
+      onclick: () => {
+        router.push("/portfolioDisplay");
+      },
     },
     {
       name: "credit info",
@@ -35,7 +55,10 @@ export default function SideBar() {
           color={headerIconsProp.color}
         ></BsPersonFill>
       ),
-      selected: false,
+      selected: pathName === "/creditPage",
+      onclick: () => {
+        router.push("/creditPage");
+      },
     },
   ];
   return (
@@ -45,7 +68,11 @@ export default function SideBar() {
       <div className="px-[20px] flex flex-col gap-y-[30px]">
         {headerIcons.map((item, index) => {
           return (
-            <div
+            <button
+              onClick={() => {
+                item.onclick();
+                setIncomingCollateralRequest(false);
+              }}
               key={index}
               className={`text-white flex items-center gap-x-[18px] rounded-[12px] px-[10px] ${
                 item.selected ? "bg-headerGray" : ""
@@ -53,7 +80,7 @@ export default function SideBar() {
             >
               <div className="py-[10px]">{item.icon} </div>{" "}
               <p className="capitalize text-headerTextGray">{item.name}</p>
-            </div>
+            </button>
           );
         })}
       </div>

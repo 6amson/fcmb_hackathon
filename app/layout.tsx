@@ -5,6 +5,7 @@ import "./globals.css";
 import SideBar from "./components/sidebar";
 import Header from "./components/header";
 import { usePathname } from "next/navigation";
+import MainContextProvider from "./components/MainContext/MainContext";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -30,26 +31,28 @@ export default function RootLayout({
         >
           <Header></Header>
         </div>
-        <div className="flex">
-          <div
-            className={`w-[200px] h-[100vh] bg-black z-40 fixed lg:block hidden ${
-              isHome && "hidden lg:hidden"
-            }`}
-          >
-            <SideBar></SideBar>
-          </div>
+        <MainContextProvider>
+          <div className="flex">
+            <div
+              className={`w-[200px] h-[100vh] bg-black z-40 fixed lg:block hidden ${
+                isHome && "hidden lg:hidden"
+              }`}
+            >
+              <SideBar></SideBar>
+            </div>
 
-          <div
-            className={`w-full  ${
-              isHome
-                ? "mt-0 pl-0 lg:pl-0 lg:mt-0"
-                : "w-full mt-[100px] lg:pl-[200px]"
-            }`}
-          >
-            {" "}
-            {children}
+            <div
+              className={`w-full  ${
+                isHome
+                  ? "mt-0 pl-0 lg:pl-0 lg:mt-0"
+                  : "w-full mt-[100px] lg:pl-[200px]"
+              }`}
+            >
+              {" "}
+              {children}
+            </div>
           </div>
-        </div>
+        </MainContextProvider>
       </body>
     </html>
   );
