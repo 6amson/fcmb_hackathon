@@ -1,4 +1,10 @@
 "use client";
+import dynamic from "next/dynamic";
+const ApexCh = dynamic(
+  () => import("../components/SharesPage/ApexCandleStick"),
+  { ssr: false }
+);
+
 import CompanyInfo from "../components/SharesPage/CompanyInfo";
 import CandleStickGraph from "../components/SharesPage/CandleStickGraph";
 import Apex from "../components/SharesPage/ApexCandleStick";
@@ -8,7 +14,7 @@ export default function SharesPage() {
       <CompanyInfo></CompanyInfo>
       <div className="xl:w-[43vw] w-full bg-[#EBEBEB] h-fit rounded-[10px] p-[10px]">
         {" "}
-        <Apex></Apex>
+        <ApexCh></ApexCh>
       </div>
     </div>
   );
