@@ -22,7 +22,7 @@ export default function RootLayout({
   const isHome = pathname === "/home";
   return (
     <html lang="en">
-      <body className={poppins.className + " bg-lightGray"}>
+      <body className={poppins.className + " bg-lightGray font-poppins"}>
         <div
           className={`w-full bg-white h-[77px] fixed top-0 pl-[200px] z-30 lg:block hidden ${
             isHome && "hidden lg:hidden"

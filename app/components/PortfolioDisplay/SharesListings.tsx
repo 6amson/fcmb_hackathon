@@ -43,7 +43,7 @@ export default function SharesListing() {
                     {" "}
                     <div>{item.name}</div>
                     <div className="px-[10px] py-[14px] bg-black rounded-[12px] text-white font-robotoCon flex w-fit text-[12px] gap-x-[11px]">
-                      <div>Avg: $38</div>
+                      <div>Open: $38</div>
                       <div className="border-x px-[11px]">Down: $38</div>
                       <div>High: $38</div>
                     </div>
@@ -109,7 +109,7 @@ export default function SharesListing() {
                       <p>Valuation- </p> 2 billion
                     </div>
                     <div className="px-[10px] py-[14px] bg-black rounded-[12px] text-white font-robotoCon flex w-fit text-[11px] lg:text-[12px] gap-x-[11px]">
-                      <div>Avg: $38</div>
+                      <div>Open: $38</div>
                       <div className="border-x px-[11px]">Down: $38</div>
                       <div>High: $38</div>
                     </div>

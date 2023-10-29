@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "apexcharts": "^3.44.0",
+    "chart.js": "^4.4.0",
     "country-flag-icons": "^1.5.7",
+    "framer-motion": "^10.16.4",
     "next": "13.5.6",
     "react": "^18",
+    "react-apexcharts": "^1.4.1",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "victory": "^36.6.11",
+    "victory-candlestick": "^36.6.11",
+    "victory-chart": "^36.6.11"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
