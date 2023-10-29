@@ -141,9 +141,9 @@ export default function StockOwned() {
                       <p>Valuation- </p> 2 billion
                     </div>
                     <div className="px-[10px] py-[14px] bg-black rounded-[12px] text-white font-robotoCon flex w-fit text-[11px] lg:text-[12px] gap-x-[11px]">
-                      <div>Open: $38</div>
-                      <div className="border-x px-[11px]">Down: $38</div>
-                      <div>High: $38</div>
+                      <div>Open: N2000</div>
+                      <div className="border-x px-[11px]">Down: N1800</div>
+                      <div>High: N2100</div>
                     </div>
                     <div className="bg-black py-[14px] px-[10px] rounded-[12px] text-[11px] lg:text-[12px] text-white h-fit flex w-fit  font-robotoCon">
                       <p>Shares Owned- </p> 40

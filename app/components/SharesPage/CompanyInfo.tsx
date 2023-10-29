@@ -47,9 +47,9 @@ export default function CompanyInfo() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const companyInfoArray = [
     { name: "Stock Owned", val: 50 },
-    { name: "Invested", val: "$1000" },
-    { name: "Shares Valuation", val: "$2000" },
-    { name: "Stock Price", val: "$40" },
+    { name: "Invested", val: "N200,000" },
+    { name: "Shares Valuation", val: "N260,000" },
+    { name: "Share Price", val: "N2000" },
     { name: "Latest Position", val: "+0.5" },
   ];
   const finalName = listingArray.filter((item) => {
@@ -57,7 +57,7 @@ export default function CompanyInfo() {
       return item.name;
     }
   });
-  console.log(finalName, paramss.get("name"));
+
   return (
     <div className="relative xl:w-[28vw] bg-white p-[16px] rounded-[10px]">
       <div className="text-[32px] flex items-center  gap-x-[20px]">

@@ -248,7 +248,7 @@ const data = [
 const interpretedData = data.map((item, mainIndex) => {
   return {
     ...item,
-    y: item.y.map((ys, index) => Math.round((ys / 160) * 100) / 100),
+    y: item.y.map((ys, index) => Math.round((ys / 160) * 100) / 2),
   };
 });
 
