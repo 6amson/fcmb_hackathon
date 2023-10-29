@@ -10,6 +10,10 @@ $main-font: "Satoshi-Variable";
   font-family: $main-font;
   height: 60px;
 
+  .menu{
+    display: none;
+  }
+
 
   div{
     ul{
@@ -70,7 +74,7 @@ $main-font: "Satoshi-Variable";
     p:first-child{
       font-size: 60px;
       font-family: 'Satoshi-Black';
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     span{
@@ -78,10 +82,11 @@ $main-font: "Satoshi-Variable";
     }
 
     p:nth-child(2){
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       font-family: 'Satoshi-regular';
       font-size: 20px;
       width: 60%;
+    // background-color: red;
     }
 
     button{
@@ -89,7 +94,7 @@ $main-font: "Satoshi-Variable";
       background-color: #4135ec;
       // background-color: rgb(0, 0, 0);
       color: #ffffff;
-      padding: 10px 20px;
+      padding: 10px 10px;
       border-radius: 5px;
       border: solid 0px;
       font-family: "Satoshi-medium";
@@ -99,8 +104,17 @@ $main-font: "Satoshi-Variable";
 
       .arrowLeft{
         margin-top: 5px;
+        margin-left: 5px;
+        transition: margin-left .2s ease-in,
       }
 
+    }
+
+    button:hover{
+        .arrowLeft{
+            margin-left: 10px;
+            transition: margin-left .2s ease-in,
+        }
     }
   }
 
@@ -153,6 +167,82 @@ $main-font: "Satoshi-Variable";
 
   }
 }
+
+
+@media (max-width: 900px) {
+   .heroPage{ 
+
+    .picHeroPage{
+        display: none;
+        // background-color: red;
+    }
+
+    .textHeroPage{
+        p:first-child{
+            width: 400px;
+          }
+
+        p:nth-child(2){
+          width: 100%;
+        }
+    }
+}
+}
+
+
+@media (max-width: 600px) {
+    .header{
+        padding: 0 20px;
+        .menu{
+            display: block;
+        }
+
+        div{
+            ul{
+                display: none;
+            }
+        }
+    }
+
+
+    .heroPage{ 
+  grid-template-columns: 1fr;
+  padding: 100px 20px;
+
+
+ 
+     .picHeroPage{
+         display: none;
+     }
+ 
+     .textHeroPage{
+
+         p:first-child{
+             width: 100%;
+             font-size: 40px;
+           }
+ 
+         p:nth-child(2){
+           width: 100%;
+         }
+     }
+ }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
