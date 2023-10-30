@@ -49,6 +49,7 @@ export default function MainInfo() {
     walletAmount,
     overdraftCredit,
     setOverDraftCredit,
+    setSharesData,
   } = useContext(MainContext) as MainContextTypes;
   const overDraftDataArray = [
     { name: "Credit Limit Overdraft", val: 250000 },
@@ -144,6 +145,32 @@ export default function MainInfo() {
                     onClick={() => {
                       toast.success("Transaction Succesful");
                       setIncomingCollateralRequest(false);
+                      setSharesData((prev: any) => {
+                        console.log(mainPayload.stock);
+                        if (mainPayload.stock === "nestle") {
+                          console.log("nnestle");
+                          return {
+                            ...prev,
+                            nestle: {
+                              ...prev.nestle,
+                              stockOwned:
+                                mainPayload.amount / 2000 +
+                                prev.nestle.stockOwned,
+                            },
+                          };
+                        } else if (mainPayload.stock === "bolt") {
+                          console.log("nn");
+                          return {
+                            ...prev,
+                            Bolt: {
+                              ...prev.Bolt,
+                              stockOwned:
+                                mainPayload.amount / 2000 +
+                                prev.Bolt.stockOwned,
+                            },
+                          };
+                        }
+                      });
                       setOverDraftCredit((prev: any) => {
                         return prev + mainPayload.amount - walletAmount;
                       });

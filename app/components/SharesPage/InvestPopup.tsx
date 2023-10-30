@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useState, useContext } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { BsX } from "react-icons/bs";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { MainContext, MainContextTypes } from "../MainContext/MainContext";
 import { Rings } from "react-loader-spinner";
 
@@ -45,6 +45,8 @@ interface InvestPopupProps {
 }
 
 export default function InvestPopup(props: InvestPopupProps) {
+  const searchParams = useSearchParams();
+  const shareName = searchParams.get("name");
   const router = useRouter();
   const {
     incomingCollateralRequest,
@@ -71,7 +73,7 @@ export default function InvestPopup(props: InvestPopupProps) {
   };
   const handleOverDraft = () => {
     setIncomingCollateralRequest(true);
-    setMainPayload({ amount: shareAmount * 2000 });
+    setMainPayload({ amount: shareAmount * 2000, stock: shareName });
     router.push("/creditPage");
   };
   return (
@@ -117,7 +119,7 @@ export default function InvestPopup(props: InvestPopupProps) {
               : "bg-primaryPurple text-white"
           } p-[10px] rounded-[10px] flex gap-x-[10px] w-fit  items-center duration-300`}
         >
-          Buy Stock{" "}
+          Buy Shares{" "}
           <BsWalletFill
             className={` ${
               aboveWallet ? "fill-[#AAAAAA]" : "fill-white"

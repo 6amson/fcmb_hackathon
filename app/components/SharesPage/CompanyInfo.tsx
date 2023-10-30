@@ -8,18 +8,30 @@ import Image from "next/image";
 import { useParams, useSearchParams } from "next/navigation";
 import { BsBarChartFill } from "react-icons/bs";
 import InvestPopup from "./InvestPopup";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
+import { MainContext, MainContextTypes } from "../MainContext/MainContext";
 
 export default function CompanyInfo() {
   const paramss = useSearchParams();
+  const {
+    incomingCollateralRequest,
+    setIncomingCollateralRequest,
+    mainPayload,
+    walletAmount,
+    overdraftCredit,
+    setOverDraftCredit,
+    setSharesData,
+    sharesData,
+  } = useContext(MainContext) as MainContextTypes;
   const listingArray = [
     {
       name: "Nestle",
       icon: listingOne,
       up: true,
       percent: "+0.6%",
-
+      owned: sharesData.nestle.stockOwned,
       namee: "nestle",
     },
     {
@@ -27,6 +39,7 @@ export default function CompanyInfo() {
       icon: listingTwo,
       up: false,
       percent: "-0.3%",
+      owned: sharesData.Bolt.stockOwned,
       namee: "bolt",
     },
     {
@@ -35,6 +48,7 @@ export default function CompanyInfo() {
       up: true,
       percent: "+0.9%",
       namee: "flutter",
+      owned: 40,
     },
     {
       name: "Alat",
@@ -42,11 +56,11 @@ export default function CompanyInfo() {
       up: false,
       percent: "-0.2%",
       namee: "alat",
+      owned: 40,
     },
   ];
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const companyInfoArray = [
-    { name: "Stock Owned", val: 50 },
     { name: "Invested", val: "N200,000" },
     { name: "Shares Valuation", val: "N260,000" },
     { name: "Share Price", val: "N2000" },
@@ -70,6 +84,9 @@ export default function CompanyInfo() {
         {paramss.get("name")}
       </div>
       <div className="flex flex-col gap-y-[25px] mt-[21px]">
+        <div className="font-robotoCon w-fit p-[10px] rounded-[10px] bg-darkerHomeGray">
+          Shares Onwned : {finalName[0].owned}
+        </div>
         {companyInfoArray.map((item, index) => {
           return (
             <div

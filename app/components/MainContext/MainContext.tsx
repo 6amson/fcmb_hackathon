@@ -13,10 +13,13 @@ export interface MainContextTypes {
   setWalletAmount: Dispatch<SetStateAction<number>>;
   mainPayload: {
     amount: number;
+    stock: string;
   };
   overdraftCredit: number;
   setOverDraftCredit: Dispatch<SetStateAction<any>>;
   setMainPayload: Dispatch<SetStateAction<any>>;
+  sharesData: any;
+  setSharesData: Dispatch<SetStateAction<any>>;
 }
 
 interface MainContextProps {
@@ -34,6 +37,21 @@ export default function MainContextProvider(props: MainContextProps) {
   const [overdraftCredit, setOverDraftCredit] = useState(25000);
   const [mainPayload, setMainPayload] = useState({
     amount: 0,
+    stock: "",
+  });
+  const [sharesData, setSharesData] = useState({
+    nestle: {
+      stockOwned: 50,
+      invested: 200000,
+      sharesValuation: 260000,
+      sharePrice: 2000,
+    },
+    Bolt: {
+      stockOwned: 50,
+      invested: 200000,
+      sharesValuation: 260000,
+      sharePrice: 2000,
+    },
   });
   return (
     <MainContext.Provider
@@ -46,6 +64,8 @@ export default function MainContextProvider(props: MainContextProps) {
         walletAmount,
         overdraftCredit,
         setOverDraftCredit,
+        setSharesData,
+        sharesData,
       }}
     >
       {props.children}

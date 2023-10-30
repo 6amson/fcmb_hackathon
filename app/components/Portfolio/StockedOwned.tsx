@@ -1,6 +1,8 @@
 "use client";
 import listingOne from "../../../public/PortfolioDisplay/listing-1.svg";
 import listingTwo from "../../../public/PortfolioDisplay/listing-2.svg";
+import { useContext } from "react";
+import { MainContext, MainContextTypes } from "../MainContext/MainContext";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
@@ -11,6 +13,7 @@ import {
 } from "react-icons/bs";
 
 export default function StockOwned() {
+  const { sharesData } = useContext(MainContext) as MainContextTypes;
   const router = useRouter();
   const listingArray = [
     {
@@ -21,6 +24,7 @@ export default function StockOwned() {
       onClick: () => {
         router.push("/sharesPage?name=nestle");
       },
+      info: sharesData.nestle,
     },
     {
       name: "Bolt",
@@ -30,6 +34,7 @@ export default function StockOwned() {
       onClick: () => {
         router.push("/sharesPage?name=bolt");
       },
+      info: sharesData.Bolt,
     },
   ];
   return (
@@ -66,9 +71,9 @@ export default function StockOwned() {
                     {" "}
                     <div>{item.name}</div>
                     <div className="px-[10px] py-[14px] bg-black rounded-[12px] text-white font-robotoCon flex w-fit text-[12px] gap-x-[11px]">
-                      <div>Open: $38</div>
-                      <div className="border-x px-[11px]">Down: $38</div>
-                      <div>High: $38</div>
+                      <div>Open: N2000</div>
+                      <div className="border-x px-[11px]">Down: N1800</div>
+                      <div>High: N2100</div>
                     </div>
                   </div>
                   <div className="flex flex-col justify-between">
@@ -77,7 +82,7 @@ export default function StockOwned() {
                         <p>Valuation- </p> 2 billion
                       </div>
                       <div className="bg-black py-[14px] px-[10px] rounded-[12px] text-[12px] text-white h-fit flex w-fit text-[12px] font-robotoCon">
-                        <p>Shares Owned- </p> 40
+                        <p>Shares Owned- </p> {item.info.stockOwned}
                       </div>
                     </div>
                     <div className="flex gap-x-2  justify-end">
@@ -149,7 +154,7 @@ export default function StockOwned() {
                       <div>High: N2100</div>
                     </div>
                     <div className="bg-black py-[14px] px-[10px] rounded-[12px] text-[11px] lg:text-[12px] text-white h-fit flex w-fit  font-robotoCon">
-                      <p>Shares Owned- </p> 40
+                      <p>Shares Owned- </p> {item.info.stockOwned}
                     </div>
                   </div>
                   <div className="flex gap-x-2  justify-end absolute top-[10px] right-[10px]">
