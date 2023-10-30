@@ -15,7 +15,7 @@ export default function BalanceStatement() {
         className="w-[16vw] absolute right-0 bottom-0"
       ></Image>
       <div className="lg:text-[10vw] text-[18vw] text-white absolute lg:left-[40px] lg:bottom-[40px] left-[17px] bottom-[10px] leading-none font-robotoCon">
-        25,000
+        250,000
       </div>
       <button className="lg:text-[1rem] text-[10px]  top-[16px] right-[10px] lg:top-[33px] lg:right-[22px] absolute flex gap-x-[4px] lg:gap-x-2 items-center">
         <BsPlusCircleFill
