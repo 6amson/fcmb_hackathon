@@ -14,6 +14,8 @@ export interface MainContextTypes {
   mainPayload: {
     amount: number;
   };
+  overdraftCredit: number;
+  setOverDraftCredit: Dispatch<SetStateAction<any>>;
   setMainPayload: Dispatch<SetStateAction<any>>;
 }
 
@@ -29,6 +31,7 @@ export default function MainContextProvider(props: MainContextProps) {
   const [incomingCollateralRequest, setIncomingCollateralRequest] =
     useState(false);
   const [walletAmount, setWalletAmount] = useState(250000);
+  const [overdraftCredit, setOverDraftCredit] = useState(25000);
   const [mainPayload, setMainPayload] = useState({
     amount: 0,
   });
@@ -41,6 +44,8 @@ export default function MainContextProvider(props: MainContextProps) {
         setMainPayload,
         setWalletAmount,
         walletAmount,
+        overdraftCredit,
+        setOverDraftCredit,
       }}
     >
       {props.children}

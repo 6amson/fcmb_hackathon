@@ -25,17 +25,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className + " bg-lightGray font-poppins"}>
         <div
-          className={`w-full bg-white h-[77px] fixed top-0 pl-[200px] z-30 lg:block hidden ${
-            isHome && "hidden lg:hidden"
+          className={`w-full bg-white h-[77px] fixed top-0 lg:pl-[200px] z-30 block ${
+            isHome && "hidden "
           }`}
         >
           <Header></Header>
         </div>
         <MainContextProvider>
-          <div className="flex">
+          <div className="lg:flex">
             <div
-              className={`w-[200px] h-[100vh] bg-black z-40 fixed lg:block hidden ${
-                isHome && "hidden lg:hidden"
+              className={`lg:w-[200px] lg:h-[100vh] h-[60px] w-full bg-black z-40 fixed block bottom-0 lg:left-0  ${
+                isHome && "hidden "
               }`}
             >
               <SideBar></SideBar>

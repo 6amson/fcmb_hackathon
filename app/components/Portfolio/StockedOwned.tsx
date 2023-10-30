@@ -122,7 +122,10 @@ export default function StockOwned() {
             return (
               <div
                 key={index}
-                className="p-[10px] bg-darkerHomeGray flex rounded-[16px] relative"
+                onClick={() => {
+                  item.onClick();
+                }}
+                className="p-[10px] bg-darkerHomeGray flex rounded-[16px] relative cursor-pointer"
               >
                 <div className="flex flex-col justify-between">
                   <Image

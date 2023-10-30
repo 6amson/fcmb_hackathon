@@ -47,16 +47,19 @@ export default function MainInfo() {
     setIncomingCollateralRequest,
     mainPayload,
     walletAmount,
+    overdraftCredit,
+    setOverDraftCredit,
   } = useContext(MainContext) as MainContextTypes;
   const overDraftDataArray = [
     { name: "Credit Limit Overdraft", val: 250000 },
-    { name: "Outstanding Credit", val: 20000, red: true },
+    { name: "Outstanding Credit", val: overdraftCredit, red: true },
   ];
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="flex flex-col gap-y-[40px] relative">
+      <ToastContainer></ToastContainer>
       {incomingCollateralRequest && (
-        <div className="lg:w-[60vw] w-full pt-[40px] h-[80vh] overflow-auto shadow-lg p-[20px] bg-white fixed z-30 top-[100px] p-[20px] rounded-[16px]">
+        <div className="lg:w-[60vw] w-full pt-[40px] h-[80vh] overflow-auto shadow-lg p-[20px] bg-white fixed z-30 top-[30px] lg:top-[100px] p-[20px] rounded-[16px]">
           <div className="absolute top-0 relative w-full flex items-center pb-[10px] border-b border-black">
             <div>OverDraft Analysis Menu</div>
             <button
@@ -137,7 +140,16 @@ export default function MainInfo() {
                     The Overdraft exceeds your overdraft Credit limit
                   </div>
                 ) : (
-                  <button className="bg-primaryPurple mt-[40px] w-full text-white p-[20px] text-white rounded-[14px] hover:bg-black duration-300">
+                  <button
+                    onClick={() => {
+                      toast.success("Transaction Succesful");
+                      setIncomingCollateralRequest(false);
+                      setOverDraftCredit((prev: any) => {
+                        return prev + mainPayload.amount - walletAmount;
+                      });
+                    }}
+                    className="bg-primaryPurple mt-[40px] w-full text-white p-[20px] text-white rounded-[14px] hover:bg-black duration-300"
+                  >
                     Confirm Overdraft
                   </button>
                 )}

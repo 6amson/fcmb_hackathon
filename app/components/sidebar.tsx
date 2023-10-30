@@ -1,5 +1,8 @@
 "use client";
+import logo from "../home/logo.png";
+import userImage from "../../public/CreditPage/user-image.jpg";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
 import { Dispatch, SetStateAction, useState, useContext } from "react";
 import { MainContext, MainContextTypes } from "./MainContext/MainContext";
 import { BsHouseFill, BsFolderFill, BsPersonFill } from "react-icons/bs";
@@ -63,9 +66,29 @@ export default function SideBar() {
   ];
   return (
     <div className="w-full">
-      <div className="w-[60px] h-[60px] bg-white rounded-full mb-[20px] mt-[40px] mx-auto"></div>
-      <div className="w-3/5 h-[1px] bg-headerTextGray mx-auto mb-[20px]"></div>
-      <div className="px-[20px] flex flex-col gap-y-[30px]">
+      <div className="text-white flex justify-around mt-[10px] lg:hidden">
+        {headerIcons.map((item, index) => {
+          return (
+            <div
+              key={index}
+              onClick={() => {
+                item.onclick();
+              }}
+              className={`text-white text-[12px] w-[90px] text-center flex flex-col items-center p-[10px] rounded-[10px]  ${
+                item.selected ? "bg-headerGray" : ""
+              }`}
+            >
+              {item.icon}
+              {item.name}
+            </div>
+          );
+        })}
+      </div>
+      <div className="w-[60px] overflow-hidden h-[60px] rounded-full mb-[20px] mt-[40px] mx-auto lg:flex hidden items-center justify-center">
+        <Image src={logo.src} width={60} height={60} alt="logo"></Image>
+      </div>
+      <div className="w-3/5 h-[1px] bg-headerTextGray mx-auto mb-[20px] lg:block hidden"></div>
+      <div className="px-[20px] lg:flex flex-col gap-y-[30px] hidden">
         {headerIcons.map((item, index) => {
           return (
             <button

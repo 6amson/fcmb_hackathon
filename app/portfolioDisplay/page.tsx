@@ -17,7 +17,7 @@ export default function Portfolio() {
           ></Image>
         </button>
       </div>
-      <div className="flex xl:flex-row flex-col justify-between">
+      <div className="flex xl:flex-row flex-col justify-between  pb-[60px]">
         <PortfolioList></PortfolioList>
         <SharesListing></SharesListing>
       </div>

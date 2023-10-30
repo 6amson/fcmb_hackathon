@@ -6,8 +6,8 @@ import { RE } from "country-flag-icons/react/3x2";
 
 export default function Home() {
   return (
-    <div className="h-screen w-full px-[15px] py-[31px]">
-      <div className="pb-[30px]">
+    <div className="h-fit w-full px-[15px] py-[31px] ">
+      <div className="lg:pb-[30px] pb-[60px] ">
         <div className="flex flex-col lg:flex-row  justify-center lg:gap-x-[15px]">
           {" "}
           <BalanceStatement></BalanceStatement>
