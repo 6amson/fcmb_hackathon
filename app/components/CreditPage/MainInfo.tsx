@@ -156,6 +156,11 @@ export default function MainInfo() {
                               stockOwned:
                                 mainPayload.amount / 2000 +
                                 prev.nestle.stockOwned,
+                              invested:
+                                prev.nestle.invested + mainPayload.amount,
+                              sharesValuation:
+                                prev.nestle.sharesValuation +
+                                (mainPayload.amount * 125) / 100,
                             },
                           };
                         } else if (mainPayload.stock === "bolt") {
@@ -167,6 +172,10 @@ export default function MainInfo() {
                               stockOwned:
                                 mainPayload.amount / 2000 +
                                 prev.Bolt.stockOwned,
+                              invested: prev.Bolt.invested + mainPayload.amount,
+                              sharesValuation:
+                                prev.Bolt.sharesValuation +
+                                (mainPayload.amount * 110) / 100,
                             },
                           };
                         }

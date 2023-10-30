@@ -33,6 +33,8 @@ export default function CompanyInfo() {
       percent: "+0.6%",
       owned: sharesData.nestle.stockOwned,
       namee: "nestle",
+      val: sharesData.nestle.sharesValuation,
+      invested: sharesData.nestle.invested,
     },
     {
       name: "Bolt",
@@ -41,6 +43,8 @@ export default function CompanyInfo() {
       percent: "-0.3%",
       owned: sharesData.Bolt.stockOwned,
       namee: "bolt",
+      val: sharesData.Bolt.sharesValuation,
+      invested: sharesData.Bolt.invested,
     },
     {
       name: "flutterwave",
@@ -49,6 +53,8 @@ export default function CompanyInfo() {
       percent: "+0.9%",
       namee: "flutter",
       owned: 40,
+      val: 0,
+      invested: 0,
     },
     {
       name: "Alat",
@@ -57,20 +63,20 @@ export default function CompanyInfo() {
       percent: "-0.2%",
       namee: "alat",
       owned: 40,
+      val: 0,
+      invested: 0,
     },
   ];
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const companyInfoArray = [
-    { name: "Invested", val: "N200,000" },
-    { name: "Shares Valuation", val: "N260,000" },
-    { name: "Share Price", val: "N2000" },
-    { name: "Latest Position", val: "+0.5" },
-  ];
   const finalName = listingArray.filter((item) => {
     if (item.namee === paramss.get("name")) {
       return item.name;
     }
   });
+  const companyInfoArray = [
+    { name: "Share Price", val: "N2000" },
+    { name: "Latest Position", val: "+0.5" },
+  ];
 
   return (
     <div className="relative xl:w-[28vw] bg-white p-[16px] rounded-[10px]">
@@ -86,6 +92,12 @@ export default function CompanyInfo() {
       <div className="flex flex-col gap-y-[25px] mt-[21px]">
         <div className="font-robotoCon w-fit p-[10px] rounded-[10px] bg-darkerHomeGray">
           Shares Onwned : {finalName[0].owned}
+        </div>
+        <div className="font-robotoCon w-fit p-[10px] rounded-[10px] bg-darkerHomeGray">
+          Shares Valuation : {finalName[0].val}
+        </div>
+        <div className="font-robotoCon w-fit p-[10px] rounded-[10px] bg-darkerHomeGray">
+          Amount Invested : {finalName[0].invested}
         </div>
         {companyInfoArray.map((item, index) => {
           return (
