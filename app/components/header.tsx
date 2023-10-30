@@ -8,21 +8,25 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <div className="flex relative items-center h-full">
-      <div className="p-[10px] bg-darkerHomeGray rounded-[16px] flex items-center justify-center w-fit ">
+      <div className="p-[10px]  rounded-[16px] flex items-center justify-center w-fit ">
         {" "}
-        <div className="absolute left-[10px] xl:left-[20px] h-[40px] h-[40px] rounded-full overflow-hidden">
-          <Image
-            src={userImage.src}
-            width={40}
-            height={40}
-            alt="user image"
-          ></Image>
+        <div className="flex items-center absolute left-[10px] xl:left-[20px]">
+          {" "}
+          <div className=" h-[40px] h-[40px] rounded-full overflow-hidden">
+            <Image
+              src={userImage.src}
+              width={40}
+              height={40}
+              alt="user image"
+            ></Image>
+          </div>
+          <div className="ml-[10px] hidden lg:block text-sm">Welcome Tunde</div>
         </div>
       </div>
       <div
         className={`${
           pathname === "/portfolio" ? "" : "hidden"
-        } absolute left-[80px] xl:left-[110px] bg-darkerHomeGray lg:p-[20px] p-[10px] rounded-[16px] text-[12px]`}
+        } absolute left-[80px] lg:left-[220px] bg-darkerHomeGray lg:p-[20px] p-[10px] rounded-[16px] text-[12px]`}
       >
         {searchParams.get("name")}
       </div>
